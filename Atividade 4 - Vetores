@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Atividade 4 vetores {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //1 - Crie um vetor do tipo inteiro com um tamanho definido pelo usuário.
+        System.out.print("Informe o tamanho do vetor: ");
+        int tamanho = scanner.nextInt();
+        
+        int[] vetor = new int[tamanho];
+
+        //2 - Faça o preenchimento de todas as posições do vetor definido anteriormente por meio de leituras pelo usuário.
+        System.out.println("Preencha o vetor:");
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print("Elemento [" + i + "]: ");
+            vetor[i] = scanner.nextInt();
+        }
+
+        // 3 - Faça a soma dos valores de cada posição do vetor.
+        int soma = 0;
+        for (int valor : vetor) {
+            soma += valor;
+        }
+        System.out.println("Soma dos valores do vetor: " + soma);
+
+        // 4 - Obtenha a média de todos valores do vetor.
+        double media = (double) soma / tamanho;
+        System.out.println("Média dos valores do vetor: " + media);
+
+        // 5 - Identifique o maior valor presente no vetor.
+        int maiorValor = vetor[0];
+        for (int valor : vetor) {
+            if (valor > maiorValor) {
+                maiorValor = valor;
+            }
+        }
+        System.out.println("Maior valor do vetor: " + maiorValor);
+
+        // 6 - Identifique o menor valor presente no vetor.
+        int menorValor = vetor[0];
+        for (int valor : vetor) {
+            if (valor < menorValor) {
+                menorValor = valor;
+            }
+        }
+        System.out.println("Menor valor do vetor: " + menorValor);
+
+        // 7 - Substitua o valor de 2 posições do vetor e calcule a soma e a média do vetor novamente.
+        System.out.print("Informe a posição do primeiro elemento a ser substituído (0 a " + (tamanho - 1) + "): ");
+        int posicao1 = scanner.nextInt();
+        System.out.print("Informe o novo valor para a posição " + posicao1 + ": ");
+        vetor[posicao1] = scanner.nextInt();
+
+        System.out.print("Informe a posição do segundo elemento a ser substituído (0 a " + (tamanho - 1) + "): ");
+        int posicao2 = scanner.nextInt();
+        System.out.print("Informe o novo valor para a posição " + posicao2 + ": ");
+        vetor[posicao2] = scanner.nextInt();
+
+        // Recalculando a soma e a média
+        soma = 0;
+        for (int valor : vetor) {
+            soma += valor;
+        }
+        media = (double) soma / tamanho;
+        
+        System.out.println("Nova soma dos valores do vetor: " + soma);
+        System.out.println("Nova média dos valores do vetor: " + media);
+
+        scanner.close();
+    }
+}
+
